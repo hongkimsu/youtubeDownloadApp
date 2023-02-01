@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YoutubeDownloadApp</title>
+  <link rel="stylesheet" href="{% static 'styles/styles.css' %}" type="text/css"></link>
+
+  <script>
+
+
+    sessionStorage.removeItem("response_message");
+    document.addEventListener("click",event=>{
+      const element = document.querySelector("#infoText");
+      element.remove();
+    })
+
+    {% comment %} document.addEventListener('click', event => {
+      const element = event.target;
+      if (element.className === "downloadbotton") {
+        const responseTextElement = document.querySelector("#infoText");
+        responseTextElement.remove();
+        };
+      }) {% endcomment %}
+
+  </script>
+  
+</head>
+
+<body>
+  <div id="wholepage">
+    <h1>Donwload Any Videos From Youtube 
+      <img src="{% static '/images/ytLogo.png' %}" alt="Youtube_Logo">
+    </h1>
+
+    <form action="{% url 'index' %}" method="post">
+      <div id= "urlSection" class="center">
+        {% csrf_token %}
+        {{ userForm.url }} 
+        <button type="submit" id="downloadbotton" class="downloadbotton" data-statusText="Download">Download</button>
+      </div>
+      <div id="resolutionChoice" class="center">
+        {% for choice in userForm.resolution %}
+            {{ choice.tag }}
+            {{ choice.choice_label }}
+        {% endfor %}     
+      </div>
+
+    </form>
+
+    <div id="infoText" class="center">{{response_message}}</div>
+  
+    <div id="embededVideo" class="center">
+      <iframe src="https://www.youtube.com/embed/dLNPk9MB5zo" 
+              title="YouTube video player" frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen></iframe>    
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,92 @@
+body{
+  background-color: lightblue;
+  font-family: sans-serif;
+  border: 1px solid #73AD21;
+}
+
+:root{
+  font-size: 3.2vw;
+}
+
+.center{
+  max-width: 80%;
+  font-size: 0.6rem;
+  margin: auto;
+  display: flex;
+  /* border: 2px solid #73AD21; */
+  justify-content:center;
+  align-items:center;
+}
+
+h1 {
+  font-size: 1rem;
+  text-align: center;
+  color: red;
+}
+
+img {
+  position: relative;
+  top: 0.2rem;
+  width: 2rem;
+  height: 1.3rem;
+}
+
+
+
+#urlSection{
+  font-size: 0.6rem;
+  height: 1rem;
+  
+}
+
+#urlSection input[type="text"]{
+  flex: 5;
+  text-align: center;
+  height: 100%;
+  font-size: 0.6rem;
+}
+
+#downloadbotton{
+  flex: 1;
+  height: 100%;
+  font-size: 0.6rem;
+}
+
+#resolutionChoice{
+  max-width: 60%;
+  font-size: 0.6rem;
+  height: 2rem;
+  justify-content: space-between;
+}
+
+#resolutionChoice input[type="radio"]{
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: -4.1rem;
+  
+}
+
+#embededVideo iframe{
+  height: 10rem;
+  width: 15rem;
+}
+
+#infoText{
+  height: 2rem;
+  max-width: 15rem;
+  color: red;
+  border-radius: 0.2rem;
+  animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
